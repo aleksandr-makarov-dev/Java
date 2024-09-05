@@ -2,6 +2,7 @@ package org.example;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
+import org.example.entities.Birthday;
 import org.example.entities.User;
 import org.junit.jupiter.api.Test;
 
@@ -28,8 +29,7 @@ class MainTest {
                 .username("ivan1@gmail.com")
                 .firstname("Ivan")
                 .lastname("Ivanov")
-                .birthDate(LocalDate.of(2000,12,14))
-                .age(23)
+                .birthDate(new Birthday(LocalDate.of(2000,12,14)))
                 .build();
 
         var sql = """
