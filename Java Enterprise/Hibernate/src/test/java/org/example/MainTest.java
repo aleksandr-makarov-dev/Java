@@ -75,4 +75,9 @@ class MainTest {
 
         connection.close();
     }
+
+    @Test
+    public void testSessionPersistence(){
+          
+    }
 }

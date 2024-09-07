@@ -4,6 +4,7 @@ import org.example.converters.BirthdayConverter;
 import org.example.entities.Birthday;
 import org.example.entities.Role;
 import org.example.entities.User;
+import org.example.utils.HibernateUtils;
 import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.cfg.Configuration;
 
@@ -13,14 +14,9 @@ import java.time.LocalDate;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        configuration.addAnnotatedClass(User.class);
-        configuration.addAttributeConverter(new BirthdayConverter(),true);
-        // replaces birthDate with birth_date
-        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
 
-        var sessionFactory = configuration.buildSessionFactory();
+
+        var sessionFactory = HibernateUtils.buildSessionFactory();
 
         try(var session = sessionFactory.openSession();){
             session.beginTransaction();
@@ -44,6 +40,8 @@ public class Main {
             session.saveOrUpdate(user);
 
             User user1 = session.get(User.class,"ivan123@gmail.com");
+            User user2 = session.get(User.class,"ivan123@gmail.com");
+            User user3 = session.get(User.class,"ivan123@gmail.com");
 
             System.out.println(user1.toString());
 
