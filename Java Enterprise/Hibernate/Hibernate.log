@@ -1,0 +1,108 @@
+2024-09-08 22:09:50 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:09:50 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:09:50 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:09:50 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:09:50 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:09:50 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:09:50 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:09:50 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:09:51 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:09:51 INFO  Main:34 - User object in transient state User(username=ivan123@gmail.com, firstname=Ivan, lastname=Ivanov, birthDate=Birthday[birthDate=2000-12-14], role=ADMIN)
+2024-09-08 22:09:52 INFO  Main:45 - User was saved
+2024-09-08 22:21:59 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:21:59 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:21:59 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:21:59 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:21:59 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:21:59 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:21:59 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:21:59 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:22:01 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:22:01 INFO  Main:39 - User object in transient state User(username=ivan123@gmail.com, personalInfo=PersonalInfo(firstname=Ivan, lastname=Ivanov, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN)
+2024-09-08 22:22:01 INFO  Main:50 - User was saved
+2024-09-08 22:37:54 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:37:54 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:37:55 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:37:55 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:37:55 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:37:55 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:37:55 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:37:55 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:37:56 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:38:06 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:38:06 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:38:06 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:38:06 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:38:06 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:38:06 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:38:06 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:38:06 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:38:08 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:40:02 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:40:02 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:40:03 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:40:03 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:40:03 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:40:03 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:40:03 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:40:03 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:40:04 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:40:37 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:40:37 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:40:38 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:40:38 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:40:38 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:40:38 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:40:38 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:40:38 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:40:39 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:41:09 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:41:09 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:41:09 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:41:09 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:41:09 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:41:09 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:41:09 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:41:09 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:41:10 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:41:42 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:41:42 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:41:42 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:41:42 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:41:42 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:41:42 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:41:42 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:41:42 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:41:44 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:42:09 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-08 22:42:09 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-08 22:42:10 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-08 22:42:10 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-08 22:42:10 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-08 22:42:10 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-08 22:42:10 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-08 22:42:10 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-08 22:42:11 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-08 22:42:11 ERROR AssertionFailure:29 - HHH000099: an assertion failure occurred (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: possible non-threadsafe access to session
+2024-09-09 22:24:49 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-09 22:24:50 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-09 22:24:50 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-09 22:24:50 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-09 22:24:50 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-09 22:24:50 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-09 22:24:50 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-09 22:24:50 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-09 22:24:53 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-09 22:24:53 INFO  Main:39 - User object in transient state User(id=null, username=ivan123@gmail.com, personalInfo=PersonalInfo(firstname=Ivan, lastname=Ivanov, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN)
+2024-09-09 22:24:53 INFO  Main:50 - User was saved
+2024-09-09 22:25:26 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-09 22:25:26 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-09 22:25:27 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-09 22:25:27 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-09 22:25:27 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-09 22:25:27 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-09 22:25:27 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-09 22:25:27 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-09 22:25:29 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-09 22:25:29 INFO  Main:39 - User object in transient state User(id=null, username=ivan123@gmail.com, personalInfo=PersonalInfo(firstname=Ivan, lastname=Ivanov, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN)
+2024-09-09 22:25:29 INFO  Main:50 - User was saved

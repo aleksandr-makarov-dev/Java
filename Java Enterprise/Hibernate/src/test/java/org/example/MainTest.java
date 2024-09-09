@@ -3,7 +3,12 @@ package org.example;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import org.example.entities.Birthday;
+import org.example.entities.PersonalInfo;
+import org.example.entities.Role;
 import org.example.entities.User;
+import org.example.utils.HibernateUtils;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
@@ -20,6 +25,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
+    private static final SessionFactory sessionFactory = HibernateUtils.buildSessionFactory();
+
     @Test
     public void testHibernateApi() throws SQLException, IllegalAccessException {
 
@@ -27,9 +34,14 @@ class MainTest {
         var user = User
                 .builder()
                 .username("ivan1@gmail.com")
-                .firstname("Ivan")
-                .lastname("Ivanov")
-                .birthDate(new Birthday(LocalDate.of(2000,12,14)))
+                .personalInfo(
+                        PersonalInfo
+                                .builder()
+                                .firstname("Ivan")
+                                .lastname("Ivanov")
+                                .birthDate(new Birthday(LocalDate.of(2000,12,14)))
+                                .build()
+                )
                 .build();
 
         var sql = """
@@ -77,7 +89,28 @@ class MainTest {
     }
 
     @Test
-    public void testSessionPersistence(){
-          
+    public void testSessionFactory(){
+        try(var session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+            User user = User
+                    .builder()
+                    .username("alex123@gmail.com")
+                    .personalInfo(PersonalInfo
+                            .builder()
+                            .firstname("Alex")
+                            .lastname("Johnson")
+                            .birthDate(new Birthday(LocalDate.of(2000,12,14)))
+                            .build()
+                    )
+                    .role(Role.ADMIN)
+                    .build();
+
+            session.saveOrUpdate(user);
+
+            session.detach(user);
+
+            session.getTransaction().commit();
+        }
     }
 }

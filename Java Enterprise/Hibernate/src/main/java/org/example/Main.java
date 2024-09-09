@@ -1,34 +1,43 @@
 package org.example;
 
-import org.example.converters.BirthdayConverter;
 import org.example.entities.Birthday;
+import org.example.entities.PersonalInfo;
 import org.example.entities.Role;
 import org.example.entities.User;
 import org.example.utils.HibernateUtils;
-import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
-import org.hibernate.cfg.Configuration;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.time.LocalDate;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
 
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
+    public static void main(String[] args) {
 
         var sessionFactory = HibernateUtils.buildSessionFactory();
 
         try(var session = sessionFactory.openSession();){
             session.beginTransaction();
 
-            User user =User
+            User user = User
+                    .builder()
+                    .username("ivan123@gmail.com")
+                    .personalInfo(PersonalInfo
                             .builder()
-                            .username("ivan123@gmail.com")
                             .firstname("Ivan")
                             .lastname("Ivanov")
                             .birthDate(new Birthday(LocalDate.of(2000,12,14)))
-                            .role(Role.ADMIN)
-                            .build();
+                            .build()
+                    )
+                    .role(Role.ADMIN)
+                    .build();
+
+            logger.info("User object in transient state {}", user);
+
             // creates new user
 //            session.save(user);
 
@@ -38,17 +47,16 @@ public class Main {
             // creates if not exists or updates
 
             session.saveOrUpdate(user);
-
-            User user1 = session.get(User.class,"ivan123@gmail.com");
-            User user2 = session.get(User.class,"ivan123@gmail.com");
-            User user3 = session.get(User.class,"ivan123@gmail.com");
-
-            System.out.println(user1.toString());
+            logger.info("User was saved");
 
             // delete user
-            session.delete(user);
+//            session.delete(user);
+//            logger.debug("User deleted");
 
             session.getTransaction().commit();
+        } catch (Exception e) {
+            logger.error("Exception occurred: ", e);
+            throw  e;
         }
     }
 }
