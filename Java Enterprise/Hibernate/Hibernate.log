@@ -106,3 +106,104 @@
 2024-09-09 22:25:29 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-09-09 22:25:29 INFO  Main:39 - User object in transient state User(id=null, username=ivan123@gmail.com, personalInfo=PersonalInfo(firstname=Ivan, lastname=Ivanov, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN)
 2024-09-09 22:25:29 INFO  Main:50 - User was saved
+2024-09-11 20:44:57 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 20:44:58 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 20:44:58 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 20:44:58 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 20:44:58 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:44:58 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 20:44:58 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 20:44:58 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 20:44:58 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:45:31 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 20:45:32 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 20:45:32 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 20:45:32 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 20:45:32 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:45:32 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 20:45:32 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 20:45:32 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 20:45:33 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:46:45 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 20:46:45 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 20:46:45 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 20:46:45 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 20:46:45 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:46:45 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 20:46:45 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 20:46:45 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 20:46:46 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:47:13 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 20:47:13 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 20:47:14 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 20:47:14 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 20:47:14 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:47:14 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 20:47:14 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 20:47:14 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 20:47:14 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:51:17 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 20:51:17 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 20:51:18 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 20:51:18 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 20:51:18 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:51:18 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 20:51:18 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 20:51:18 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 20:51:18 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:54:03 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 20:54:03 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 20:54:03 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 20:54:03 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 20:54:03 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 20:54:03 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 20:54:03 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 20:54:03 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 20:54:05 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-11 20:54:05 INFO  Main:39 - User object in transient state User(id=null, username=ivan123@gmail.com, personalInfo=PersonalInfo(firstname=Ivan, lastname=Ivanov, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN, company=Company(id=null, name=Google))
+2024-09-11 20:54:05 INFO  Main:55 - User was saved
+2024-09-11 21:01:03 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 21:01:03 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-11 21:01:03 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-11 21:01:03 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-11 21:01:03 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-11 21:01:03 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-11 21:01:03 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-11 21:01:03 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-11 21:01:05 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-11 21:01:05 INFO  Main:39 - User object in transient state User(id=null, username=alex123@gmail.com, personalInfo=PersonalInfo(firstname=Alex, lastname=Johnson, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN, company=Company(id=null, name=Mail))
+2024-09-11 21:01:05 INFO  Main:55 - User was saved
+2024-09-11 21:01:05 ERROR Main:63 - Exception occurred: 
+java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: org.example.entities.Company
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:157)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:167)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:173)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1429)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.example.Main.main(Main.java:61)
+Caused by: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: org.example.entities.Company
+	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:345)
+	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:458)
+	at org.hibernate.type.ManyToOneType.isDirty(ManyToOneType.java:251)
+	at org.hibernate.type.ManyToOneType.isDirty(ManyToOneType.java:262)
+	at org.hibernate.persister.entity.DirtyHelper.isDirty(DirtyHelper.java:71)
+	at org.hibernate.persister.entity.DirtyHelper.findDirty(DirtyHelper.java:46)
+	at org.hibernate.persister.entity.AbstractEntityPersister.findDirty(AbstractEntityPersister.java:3875)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.performDirtyCheck(DefaultFlushEntityEventListener.java:507)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.dirtyCheck(DefaultFlushEntityEventListener.java:479)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.isUpdateNecessary(DefaultFlushEntityEventListener.java:218)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.onFlushEntity(DefaultFlushEntityEventListener.java:149)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEntities(AbstractFlushingEventListener.java:234)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:85)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:79)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425)
+	... 8 more

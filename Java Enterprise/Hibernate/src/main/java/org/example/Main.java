@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.entities.Birthday;
-import org.example.entities.PersonalInfo;
-import org.example.entities.Role;
-import org.example.entities.User;
+import org.example.entities.*;
 import org.example.utils.HibernateUtils;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
@@ -20,23 +17,29 @@ public class Main {
 
         var sessionFactory = HibernateUtils.buildSessionFactory();
 
+        Company company = Company
+                .builder()
+                .name("Mail")
+                .build();
+
+        User user = User
+                .builder()
+                .username("alex123@gmail.com")
+                .personalInfo(PersonalInfo
+                        .builder()
+                        .firstname("Alex")
+                        .lastname("Johnson")
+                        .birthDate(new Birthday(LocalDate.of(2000,12,14)))
+                        .build()
+                )
+                .role(Role.ADMIN)
+                .company(company)
+                .build();
+
+        logger.info("User object in transient state {}", user);
+
         try(var session = sessionFactory.openSession();){
             session.beginTransaction();
-
-            User user = User
-                    .builder()
-                    .username("ivan123@gmail.com")
-                    .personalInfo(PersonalInfo
-                            .builder()
-                            .firstname("Ivan")
-                            .lastname("Ivanov")
-                            .birthDate(new Birthday(LocalDate.of(2000,12,14)))
-                            .build()
-                    )
-                    .role(Role.ADMIN)
-                    .build();
-
-            logger.info("User object in transient state {}", user);
 
             // creates new user
 //            session.save(user);
@@ -45,6 +48,8 @@ public class Main {
 //            session.update(user);
 
             // creates if not exists or updates
+
+//            session.saveOrUpdate(company);
 
             session.saveOrUpdate(user);
             logger.info("User was saved");
