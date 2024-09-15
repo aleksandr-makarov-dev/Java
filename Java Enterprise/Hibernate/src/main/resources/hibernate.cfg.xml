@@ -13,6 +13,9 @@
 
       <mapping class="org.example.entities.User"/>
       <mapping class="org.example.entities.Company"/>
+      <mapping class="org.example.entities.Profile"/>
+      <mapping class="org.example.entities.Chat"/>
+      <mapping class="org.example.entities.UserChat"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

@@ -103,8 +103,26 @@
 - **@OneToMany** — один ко многим (используется в паре с **@ManyToOne**).
 - **@ManyToMany** — многие ко многим (редко используется).
 
-### Lazy Initialization (ленивая инициализация)
+#### Lazy Initialization (ленивая инициализация)
 
 По умолчанию коллекции и связанные сущности загружаются "лениво" (**LAZY**), что означает, что данные будут загружены только по запросу. Если попытаться получить доступ к лениво загружаемой сущности после завершения сессии, это приведёт к ошибке **LazyInitializationException**.
 
 Для немедленной загрузки можно использовать параметр **fetch = FetchType.EAGER**, который загружает данные сразу же при выполнении запроса.
+
+#### OrphalRemove (удаление дочерних элементов)
+
+Атрибут **@OneToMany(mappedBy = "company", orphanRemoval = true)** позволяет удалять объекты из базы данных с помощью коллекции родителя.
+
+```java
+try(var sessionFactory = HibernateUtils.buildSessionFactory();
+   var session = sessionFactory.openSession()){
+   session.beginTransaction();
+
+   Company company = session.get(Company.class, 3);
+   company.getUsers().removeIf(user -> user.getId().equals(5));
+
+   session.getTransaction().commit();
+}
+```
+
+#### OneToOne (один к одному)

@@ -17,29 +17,31 @@ public class Main {
 
         var sessionFactory = HibernateUtils.buildSessionFactory();
 
-        Company company = Company
-                .builder()
-                .name("Mail")
-                .build();
-
-        User user = User
-                .builder()
-                .username("alex123@gmail.com")
-                .personalInfo(PersonalInfo
-                        .builder()
-                        .firstname("Alex")
-                        .lastname("Johnson")
-                        .birthDate(new Birthday(LocalDate.of(2000,12,14)))
-                        .build()
-                )
-                .role(Role.ADMIN)
-                .company(company)
-                .build();
-
-        logger.info("User object in transient state {}", user);
-
         try(var session = sessionFactory.openSession();){
             session.beginTransaction();
+
+            //        Company company = Company
+//                .builder()
+//                .name("Mail")
+//                .build();
+
+            var company = session.get(Company.class,1);
+
+            User user = User
+            .builder()
+            .username("alex123@gmail.com")
+            .personalInfo(PersonalInfo
+                    .builder()
+                    .firstname("Alex")
+                    .lastname("Johnson")
+                    .birthDate(new Birthday(LocalDate.of(2000,12,14)))
+                    .build()
+            )
+            .role(Role.ADMIN)
+            .company(company)
+            .build();
+
+            logger.info("User object in transient state {}", user);
 
             // creates new user
 //            session.save(user);

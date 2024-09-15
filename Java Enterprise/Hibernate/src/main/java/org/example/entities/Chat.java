@@ -14,22 +14,20 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "companies", schema = "public")
-public class Company {
-
+@Table(name = "chats", schema = "public")
+public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true,nullable = false)
     private String name;
 
-    @Builder.Default
-    @OneToMany(mappedBy = "company", orphanRemoval = true)
-    private List<User> users = new ArrayList<>();
+//    @Builder.Default
+//    @ManyToMany(mappedBy = "chats")
+//    private List<User> users = new ArrayList<>();
 
-    public void addUser(User user){
-        users.add(user);
-        user.setCompany(this);
-    }
+    @Builder.Default
+    @OneToMany(mappedBy = "chat")
+    private List<UserChat> userChats = new ArrayList<>();
 }

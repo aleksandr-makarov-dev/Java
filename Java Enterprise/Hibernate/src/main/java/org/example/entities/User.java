@@ -1,17 +1,18 @@
 package org.example.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "users",schema = "public")
+@ToString(exclude = { "company", "profile", "userChats" })
+@Table(name = "users", schema = "public")
 public class User {
 
     @Id
@@ -27,7 +28,28 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Profile profile;
+
+//    @Builder.Default
+//    @ManyToMany
+//    @JoinTable(
+//            name = "users_chats",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "chat_id")
+//    )
+//    private List<Chat> chats = new ArrayList<>();
+//
+//    public void addChat(Chat chat){
+//        chats.add(chat);
+//        chat.getUsers().add(this);
+//    }
+
+    @Builder.Default
+    @OneToMany(mappedBy = "user")
+    private List<UserChat> userChats = new ArrayList<>();
 }

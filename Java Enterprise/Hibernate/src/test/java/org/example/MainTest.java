@@ -2,10 +2,8 @@ package org.example;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
-import org.example.entities.Birthday;
-import org.example.entities.PersonalInfo;
-import org.example.entities.Role;
-import org.example.entities.User;
+import lombok.Cleanup;
+import org.example.entities.*;
 import org.example.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Optional;
@@ -109,6 +108,117 @@ class MainTest {
             session.saveOrUpdate(user);
 
             session.detach(user);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    public void checkOneToMany(){
+        try(var sessionFactory = HibernateUtils.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+
+            session.beginTransaction();
+
+            var company = session.get(Company.class,1);
+
+            System.out.println(company.getUsers());
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    public void AddNewUserAndCompany(){
+        try(var sessionFactory = HibernateUtils.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+            Company company = Company
+                    .builder()
+                    .name("Yandex")
+                    .build();
+
+            User user = User
+                    .builder()
+                    .username("myuser123@example.com")
+                    .build();
+
+            company.addUser(user);
+
+            session.persist(company);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    public void checkOrphalRemove(){
+        try(var sessionFactory = HibernateUtils.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+            Company company = session.get(Company.class, 3);
+            company.getUsers().removeIf(user -> user.getId().equals(5));
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    public void checkOneToOne(){
+        try(var sessionFactory = HibernateUtils.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+            User user = User
+                    .builder()
+                    .username("userwithprofile@example.com")
+                    .build();
+
+            Profile profile = Profile
+                    .builder()
+                    .language("RU")
+                    .address("Pobedy 1")
+                    .build();
+
+            session.persist(user);
+            profile.setUser(user);
+            session.persist(profile);
+
+            session.getTransaction().commit();
+        }
+    }
+
+    @Test
+    public void checkManyToMany(){
+        try(var sessionFactory = HibernateUtils.buildSessionFactory();
+            var session = sessionFactory.openSession()){
+            session.beginTransaction();
+
+//            Chat chat = Chat
+////                    .builder()
+////                    .name("mychat")
+////                    .build();
+////
+////            User user = session.get(User.class,4);
+////            user.addChat(chat);
+////
+////            session.persist(chat);
+
+            Chat chat = session.get(Chat.class,1);
+            User user = session.get(User.class,4);
+
+            UserChat userChat = UserChat
+                    .builder()
+                    .createdAt(Instant.now())
+                    .createdBy("Alex")
+                    .build();
+
+            userChat.setChat(chat);
+            userChat.setUser(user);
+
+            session.persist(userChat);
 
             session.getTransaction().commit();
         }
