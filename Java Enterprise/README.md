@@ -98,24 +98,84 @@
 
 ### Отношения между сущностями: @OneToOne, @ManyToOne, @ManyToMany, Lazy Initialization
 
-- **@OneToOne** — один к одному.
-- **@ManyToOne** — многие к одному.
-- **@OneToMany** — один ко многим (используется в паре с **@ManyToOne**).
-- **@ManyToMany** — многие ко многим (редко используется).
+#### @OneToOne — Один к одному
 
-#### Lazy Initialization (ленивая инициализация)
-
-По умолчанию коллекции и связанные сущности загружаются "лениво" (**LAZY**), что означает, что данные будут загружены только по запросу. Если попытаться получить доступ к лениво загружаемой сущности после завершения сессии, это приведёт к ошибке **LazyInitializationException**.
-
-Для немедленной загрузки можно использовать параметр **fetch = FetchType.EAGER**, который загружает данные сразу же при выполнении запроса.
-
-#### OrphalRemove (удаление дочерних элементов)
-
-Атрибут **@OneToMany(mappedBy = "company", orphanRemoval = true)** позволяет удалять объекты из базы данных с помощью коллекции родителя.
+Отношение "один к одному" связывает две сущности, где каждая сущность может иметь не более одной связанной сущности с другой стороны. Пример использования:
 
 ```java
-try(var sessionFactory = HibernateUtils.buildSessionFactory();
-   var session = sessionFactory.openSession()){
+@Entity
+public class Employee {
+   @OneToOne
+   @JoinColumn(name = "address_id")
+   private Address address;
+}
+```
+
+#### @ManyToOne — Многие к одному
+
+Отношение "многие к одному" означает, что множество объектов может быть связано с одним объектом. Это наиболее распространённый тип отношения в базах данных. Пример:
+
+```java
+@Entity
+public class User {
+   @ManyToOne
+   @JoinColumn(name = "company_id")
+   private Company company;
+}
+```
+
+#### @OneToMany — Один ко многим
+
+Отношение "один ко многим" подразумевает, что одна сущность может быть связана с множеством других сущностей. Обычно используется вместе с **@ManyToOne** для двусторонней связи.
+
+```java
+@Entity
+public class Company {
+   @OneToMany(mappedBy = "company")
+   private List<User> users;
+}
+```
+
+#### @ManyToMany — Многие ко многим
+
+Это отношение создаётся, когда множество объектов одной сущности может быть связано с множеством объектов другой сущности. Реализуется с помощью промежуточной таблицы в базе данных:
+
+```java
+@Entity
+public class Student {
+   @ManyToMany
+   @JoinTable(
+      name = "student_course",
+      joinColumns = @JoinColumn(name = "student_id"),
+      inverseJoinColumns = @JoinColumn(name = "course_id")
+   )
+   private Set<Course> courses;
+}
+```
+
+### Lazy Initialization (ленивая инициализация)
+
+По умолчанию коллекции и связанные сущности загружаются лениво (**fetch = FetchType.LAZY**), что означает, что данные не загружаются сразу, а только при первом запросе. Это может привести к ошибке **LazyInitializationException**, если сессия была закрыта, а объект пытаются загрузить.
+
+Для немедленной загрузки данных при выполнении запроса можно указать **fetch = FetchType.EAGER**.
+
+### orphanRemoval (удаление дочерних элементов)
+
+Атрибут **orphanRemoval = true** в аннотации **@OneToMany** позволяет удалять связанные сущности, когда они удаляются из коллекции родителя. Например, удаление пользователя из компании автоматически удалит его запись из БД.
+
+```java
+@Entity
+public class Company {
+   @OneToMany(mappedBy = "company", orphanRemoval = true)
+   private List<User> users;
+}
+```
+
+Пример удаления пользователя из компании:
+
+```java
+try (var sessionFactory = HibernateUtils.buildSessionFactory();
+     var session = sessionFactory.openSession()) {
    session.beginTransaction();
 
    Company company = session.get(Company.class, 3);
@@ -125,4 +185,64 @@ try(var sessionFactory = HibernateUtils.buildSessionFactory();
 }
 ```
 
-#### OneToOne (один к одному)
+### Переход от @ManyToMany к @ManyToOne
+
+Часто отношения "многие ко многим" неудобны для управления, и их можно преобразовать в два отношения "многие к одному", добавив промежуточную сущность. Например, если есть отношение между студентами и курсами, можно создать сущность **Enrollment**, представляющую запись о регистрации студента на курс.
+
+Пример преобразования:
+
+1. Создаём промежуточную сущность **Enrollment**.
+
+```java
+@Entity
+public class Enrollment {
+   @ManyToOne
+   @JoinColumn(name = "student_id")
+   private Student student;
+
+   @ManyToOne
+   @JoinColumn(name = "course_id")
+   private Course course;
+
+   // Дополнительные атрибуты, например дата регистрации
+}
+```
+
+2. Изменяем сущности **Student** и **Course** на использование связи "многие к одному" через **Enrollment**.
+
+```java
+@Entity
+public class Student {
+   @OneToMany(mappedBy = "student")
+   private Set<Enrollment> enrollments;
+}
+
+@Entity
+public class Course {
+   @OneToMany(mappedBy = "course")
+   private Set<Enrollment> enrollments;
+}
+```
+
+Этот подход делает управление отношением более гибким и позволяет добавлять дополнительные данные, такие как дата регистрации, статус и другие атрибуты.
+
+## 18. HIBERNATE. HQL, inheritance, H2 база, Docker, сортировка
+
+### Сортировка
+
+Для сортировки используется атрибут **@OrderBy** который указывается над коллекцией. В качестве параметра SQL или HQL: **@OrderBy("username DESC")**. Можно указать по какой колонке сортировать **@OrderColumn(name="id")** - сортировка в приложении.
+
+### Тестирование
+
+База данных H2 хранится в памяти и часто используется для тестирования приложений. У неё есть несколько параметров создания:
+
+- create - удаляет и затем создает новую БД
+- create-drop - удаляет и создает новую БД, при закрытии приложения созданная ранее БД удаляется.
+- update - проверяет сущности и обновляет базу данных на их основе.
+- validate - проверяет сущности и сообщает об ошибках.
+
+Также часто используется Docker для создания контейнеров с базами данных. [Docker Test Containers](https://www.youtube.com/watch?v=8zy2Mw9IpGs).
+
+### Наследование
+
+**@MappedSuperclass** - используется чтобы отметить суперкласс от которого наследуются поля

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+    <!-- Define appenders first -->
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss} %p %c{1}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <!-- RollingFileAppender for file-based logging -->
+    <appender name="RollingFileAppender" class="org.apache.log4j.RollingFileAppender">
+        <!-- Log file location -->
+        <param name="File" value="Hibernate.log" />
+        <!-- Maximum file size before rolling -->
+        <param name="MaxFileSize" value="10MB" />
+        <!-- Keep a maximum of 5 backup files -->
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <!-- Define loggers after appenders -->
+    <logger name="com.example.myapp">
+        <level value="debug" />
+        <appender-ref ref="ConsoleAppender" />
+        <appender-ref ref="RollingFileAppender" />
+    </logger>
+
+    <!-- Root logger comes last -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="ConsoleAppender" />
+        <appender-ref ref="RollingFileAppender" />
+    </root>
+</log4j:configuration>
