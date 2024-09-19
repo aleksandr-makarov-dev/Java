@@ -1,10 +1,7 @@
 package org.example.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Instant;
 
@@ -13,6 +10,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @Builder
 @Entity
+@ToString(exclude = {"user", "chat"})
 @Table(name = "users_chats", schema = "public")
 public class UserChat extends AuditableEntity<Integer> {
 

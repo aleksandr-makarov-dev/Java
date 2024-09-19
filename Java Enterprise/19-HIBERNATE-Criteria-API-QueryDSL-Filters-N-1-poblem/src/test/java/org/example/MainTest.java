@@ -2,7 +2,6 @@ package org.example;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
-import lombok.Cleanup;
 import org.example.entities.*;
 import org.example.utils.HibernateUtils;
 import org.hibernate.Session;
@@ -14,13 +13,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 

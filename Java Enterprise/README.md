@@ -246,3 +246,15 @@ public class Course {
 ### Наследование
 
 **@MappedSuperclass** - используется чтобы отметить суперкласс от которого наследуются поля
+
+### HQL - Hibernate Query Language
+
+HQL оперирует классами, а не таблицами.
+
+### NamedQuery - именованный запрос
+
+Мы можем создавать запросы и давать им названия. Для этого нужно использовать атрибут **@NamedQuery(name,query)**
+
+## 19. HIBERNATE. Criteria API, QueryDSL, Filters, N+1 poblem
+
+###

@@ -1,6 +1,7 @@
 package org.example.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -16,18 +17,19 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@ToString(exclude = { "company", "profile", "userChats" })
+@ToString(exclude = { "company", "profile" })
 @Table(name = "users", schema = "public")
-public class User {
+public class User implements EntityBase<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
     private String username;
 
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
     @Embedded
+    @Valid
     private PersonalInfo personalInfo;
 
     @Enumerated(EnumType.STRING)

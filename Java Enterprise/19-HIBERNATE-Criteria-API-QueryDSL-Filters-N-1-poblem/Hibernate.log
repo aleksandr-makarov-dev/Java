@@ -1132,3 +1132,295 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 2024-09-17 17:56:01 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@21bf308] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 2024-09-17 17:56:01 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5db04bd2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 2024-09-17 17:56:01 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 17:43:11 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 17:43:11 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 17:43:11 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 17:43:11 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2024-09-19 17:43:11 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/postgres]
+2024-09-19 17:43:11 INFO  pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+2024-09-19 17:43:11 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 17:43:11 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 17:43:13 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 17:43:13 INFO  Main:44 - User object in transient state User(id=null, username=alex123@gmail.com, personalInfo=PersonalInfo(firstname=Alex, lastname=Johnson, birthDate=Birthday[birthDate=2000-12-14]), role=ADMIN)
+2024-09-19 17:43:13 WARN  SqlExceptionHelper:145 - SQL Error: 0, SQLState: 23505
+2024-09-19 17:43:13 ERROR SqlExceptionHelper:150 - ERROR: duplicate key value violates unique constraint "users_username_key"
+  Detail: Key (username)=(alex123@gmail.com) already exists.
+2024-09-19 17:43:13 ERROR Main:65 - Exception occurred: 
+org.hibernate.exception.ConstraintViolationException: could not execute statement [ERROR: duplicate key value violates unique constraint "users_username_key"
+  Detail: Key (username)=(alex123@gmail.com) already exists.] [insert into public.users (company_id,birth_date,firstname,lastname,role,username) values (?,?,?,?,?,?) returning id]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:97)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.execute(ResultSetReturnImpl.java:145)
+	at org.hibernate.id.insert.InsertReturningDelegate.executeAndExtractReturning(InsertReturningDelegate.java:96)
+	at org.hibernate.id.insert.AbstractReturningDelegate.performMutation(AbstractReturningDelegate.java:58)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:47)
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55)
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194)
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132)
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:95)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:391)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:305)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:224)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:137)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:182)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:105)
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:81)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.fireSaveOrUpdate(SessionImpl.java:638)
+	at org.hibernate.internal.SessionImpl.saveOrUpdate(SessionImpl.java:630)
+	at org.hibernate.internal.SessionImpl.saveOrUpdate(SessionImpl.java:625)
+	at org.example.Main.main(Main.java:56)
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "users_username_key"
+  Detail: Key (username)=(alex123@gmail.com) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2725)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2412)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:371)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:502)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:419)
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194)
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:180)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.execute(ResultSetReturnImpl.java:129)
+	... 24 more
+2024-09-19 18:31:14 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 18:31:15 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 18:31:15 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 18:31:15 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 18:31:15 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 18:31:15 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 18:31:15 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 18:31:15 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 18:31:16 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 18:31:16 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2dde0a34] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 18:31:16 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2a2798a2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 18:31:17 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:03:01 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:03:01 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:03:01 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:03:01 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:03:01 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:03:01 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:03:01 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:03:01 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:03:02 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:03:02 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2dde0a34] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:03:02 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2a2798a2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:03:03 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:05:02 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:05:03 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:05:03 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:05:03 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:05:03 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:05:03 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:05:03 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:05:03 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:05:04 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:05:04 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2dde0a34] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:05:04 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2a2798a2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:05:05 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:06:04 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:06:04 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:06:04 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:06:04 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:06:04 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:06:04 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:06:04 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:06:04 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:06:05 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:06:05 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@225ddf5f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:06:05 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2aa0feb2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:06:06 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:07:24 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:07:25 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:07:25 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:07:25 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:07:25 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:07:25 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:07:25 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:07:25 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:07:26 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:07:26 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2dde0a34] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:07:26 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2a2798a2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:07:26 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:14:44 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:16:00 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:16:00 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:16:00 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:16:00 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:16:00 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:16:00 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:16:00 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:16:00 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:16:02 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:16:02 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:16:02 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4cacccbf] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:16:02 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@611587f7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:16:02 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:30:52 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:30:53 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:30:53 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:30:53 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:30:53 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:30:53 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:30:53 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:30:53 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:30:54 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:30:54 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:30:54 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6be8ce1b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:30:54 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ad8d36f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:30:55 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:31:12 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:31:12 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:31:12 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:31:12 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:31:12 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:31:12 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:31:12 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:31:12 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:31:14 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:31:14 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:31:14 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6be8ce1b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:31:14 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ad8d36f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:31:14 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:32:26 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:32:26 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:32:26 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:32:26 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:32:26 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:32:26 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:32:26 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:32:26 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:32:27 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:32:27 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:32:27 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6be8ce1b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:32:27 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ad8d36f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:32:28 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:36:02 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:36:02 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:36:03 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:36:03 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:36:03 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:36:03 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:36:03 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:36:03 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:36:04 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:36:04 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-19 19:36:04 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6be8ce1b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:36:04 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ad8d36f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:36:04 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:36:30 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:36:30 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:36:30 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:36:30 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:36:30 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:36:30 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:36:30 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:36:30 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:36:31 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:36:32 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3f4964f2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:36:32 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1c815814] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:36:32 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:38:41 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:38:42 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:38:42 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:38:42 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:38:42 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:38:42 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:38:42 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:38:42 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:38:43 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:38:43 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3f4964f2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:38:43 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1c815814] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:38:44 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:40:49 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:40:49 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:40:49 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:40:49 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:40:49 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:40:49 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:40:49 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:40:49 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:40:50 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:40:50 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3f4964f2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:40:50 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1c815814] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:40:51 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 19:45:20 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 19:45:21 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 19:45:21 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 19:45:21 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 19:45:21 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 19:45:21 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 19:45:21 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 19:45:21 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 19:45:22 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 19:45:22 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f7ba0af] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:45:22 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@174e1b99] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 19:45:22 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 20:15:16 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 20:15:16 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 20:15:16 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 20:15:16 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 20:15:16 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 20:15:16 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 20:15:16 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 20:15:16 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 20:15:17 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 20:15:18 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f7ba0af] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:15:18 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@174e1b99] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:15:18 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 20:25:35 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 20:25:35 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 20:25:36 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 20:25:36 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 20:25:36 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 20:25:36 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 20:25:36 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 20:25:36 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 20:25:37 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 20:25:37 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4f7ba0af] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:25:37 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@174e1b99] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:25:38 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 20:36:08 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 20:36:08 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 20:36:08 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 20:36:08 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 20:36:08 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 20:36:08 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 20:36:08 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 20:36:08 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 20:36:09 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-19 20:36:09 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 20:36:10 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1b465fa9] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:36:10 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5b64f771] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:36:10 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 20:40:49 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 20:40:49 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 20:40:49 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 20:40:49 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 20:40:49 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 20:40:49 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 20:40:49 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 20:40:49 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 20:40:50 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-19 20:40:50 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 20:40:51 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@300aa927] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:40:51 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65503a26] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:40:51 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
+2024-09-19 20:41:29 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-19 20:41:29 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-09-19 20:41:29 WARN  pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-09-19 20:41:29 INFO  pooling:136 - HHH10001005: Loaded JDBC driver class: org.h2.Driver
+2024-09-19 20:41:29 INFO  pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:testdb]
+2024-09-19 20:41:29 INFO  pooling:167 - HHH10001001: Connection properties: {}
+2024-09-19 20:41:29 INFO  pooling:171 - HHH10001003: Autocommit mode: false
+2024-09-19 20:41:29 INFO  pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+2024-09-19 20:41:30 INFO  Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-19 20:41:31 WARN  MetadataContext:728 - HHH015011: Unable to locate static metamodel field : org.example.entities.PersonalInfo_#birthDate; this may or may not indicate a problem with the static metamodel
+2024-09-19 20:41:31 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@300aa927] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:41:31 INFO  access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@65503a26] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-09-19 20:41:31 INFO  pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:testdb]
