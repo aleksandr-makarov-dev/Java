@@ -257,4 +257,86 @@ HQL оперирует классами, а не таблицами.
 
 ## 19. HIBERNATE. Criteria API, QueryDSL, Filters, N+1 poblem
 
-###
+## 24. Spring 6. Annotation & Java Based config
+
+### Жизненный цикл Bean (ВАЖНО)
+
+![](./assets/bean-lifecycle.png)
+
+### @PostConstruct и @PreDestroy
+
+**@PostConstruct** выполняется после создания бина для singleton и prototype режимов
+
+**@PreDestroy** выполняется перед удалением бина только для singleton режима. Обычно @PreDestroy выполняется после вызова метода close() у контекста
+
+### Реализация кастомного Dependency Injection
+
+Сначала нужно создать собственную аннотацию которой будем отмечать поле которое нужно заинжектить. @Target(ElementType.FIELD) отвечает за цель которая будет инжектиться, в данном случаем это поле. Так же может быть METHOD, CONSTRUCTOR и т.д.
+
+```java
+// simple custom annotation to mark that field must be injected
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface InjectBean {}
+```
+
+Следующим этапом нужно получить все поля из объекта, отфильтровать те, которые обозначены аннотацией @InjectBean, считать тип объекта и получить объект из контекта. Полученный объект устанавливается в поле с помощью ReflectionUtils
+
+```java
+// custom dependency injection realisation
+
+public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
+    private ApplicationContext applicationContext;
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+
+        // read each object field
+        Arrays.stream(bean.getClass().getDeclaredFields())
+                // filter fields with @InjectBean annotation
+                .filter(field->field.isAnnotationPresent(InjectBean.class))
+                .forEach(field -> {
+                    // read type of fields and get bean of this type from context
+                    var objectToInject = applicationContext.getBean(field.getType());
+
+                    // some advanced thing to make field accessible and set bean value to the field
+                    ReflectionUtils.makeAccessible(field);
+//                    field.setAccessible(true);
+                    ReflectionUtils.setField(field,bean,objectToInject);
+//                    field.set(bean,objectToInject);
+                });
+
+        return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+}
+
+```
+
+### @Autowired, @Qualifier и @Resource
+
+**@Autowired** используется для автоматического инжекта объекта
+
+Часто бывает что у нас в конфигурации указано несколько вариантов объекта который нужно заинжектить. @Autowired не имеет дополнительных параметров кроме required.
+
+```xml
+    <bean name="connectionPool1" class="org.example.demo.domain.ConnectionPool">
+    ...
+    </bean>
+
+    <bean name="connectionPool2" class="org.example.demo.domain.ConnectionPool">
+    ...
+    </bean>
+```
+
+**@Resource** аналогично автоматически инжектит бин, но в отличие от @Autowired, у него есть параметр `name` в котором мы можем указать название бина. Данная аннотация используется **ОЧЕНЬ РЕДКО**. Вместо неё лучше использовать **@Qualifier** в связке с **@Autowired**.
+
+```java
+    @Autowired
+    @Qualifier("connectionPool2")
+    private ConnectionPool connectionPool2;
+```
