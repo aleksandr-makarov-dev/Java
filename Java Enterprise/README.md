@@ -340,3 +340,27 @@ public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationCo
     @Qualifier("connectionPool2")
     private ConnectionPool connectionPool2;
 ```
+
+### @Value, @Component, @Repository, @Service, @Controller
+
+Аннотация **@Value** используется для инжекта значения из конфигурационного файла.  
+**@Component, @Repository, @Service и @Controller** используются для добавления бина в контекст. По функционалу аннотации ничего не различаются и имеют семантическую роль.
+
+### Способы инициализации бинов - @Configuration
+
+**@Configuration** используется для аннотации класса в котором будем конфигурировать бины. Best practice разделять конфигурации.  
+**@PropertySource("classpath:application.properties")** путь к файлу из которого берем конфигурацию.
+
+**@ComponentScan()** указываем где находятся бины.
+
+**@ImportResource("classpath:application.xml")** импортируем хмл файл в контект который использует аннотации.
+
+**@Import(WebConfiguration.class)** импорт конфигураций из других модулей.
+
+## 25. Spring 6. Event Listeners
+
+### Паттерн Event Listener
+
+В данном паттерне всегда есть 2 сущности класс Event который хранит такие поля как id, entity и session и класс Listener, у него есть метод accept(Event). Между двумя сущностями реализован механизм подписки и отписки. Сущности добавляются в список и когда происходит событие они уведомляются.
+
+Аннотация @EventListener служит для обозначения метод который будет слушателем
