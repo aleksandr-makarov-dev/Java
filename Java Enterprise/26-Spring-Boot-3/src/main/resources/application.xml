@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
+<!--        <property name="location" value="classpath:application.properties"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
+
+    <context:component-scan base-package="org.example.demo"/>
+    <context:annotation-config/>
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean class="org.example.demo.bpp.InjectBeanPostProcessor"/>
+
+    <bean class="org.example.demo.repository.UserRepository" init-method="init" destroy-method="destroy">
+<!--        <constructor-arg name="userName" value="${db.username}"/>-->
+<!--        <constructor-arg name="poolSize" value="${db.pool.size}"/>-->
+<!--        <constructor-arg name="args">-->
+<!--            <list>-->
+<!--                <value>1</value>-->
+<!--                <value>2</value>-->
+<!--                <value>3</value>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg name="properties">-->
+<!--            <map>-->
+<!--                <entry key="user" value-ref="driver"/>-->
+<!--                <entry key="address" value="Backer's Street"/>-->
+<!--                <entry key="postgres" value="#{driver}"/>-->
+<!--            </map>-->
+<!--        </constructor-arg>-->
+    </bean>
+
+    <bean class="org.example.demo.repository.UserRepository" />
+
+    <bean name="connectionPool1" class="org.example.demo.domain.ConnectionPool">
+<!--        <constructor-arg name="username" value="${db.username}"/>-->
+<!--        <constructor-arg name="password" value="${db.password}"/>-->
+<!--        <constructor-arg name="poolSize" value="${db.pool.size}"/>-->
+<!--        <constructor-arg name="url" value="${db.url}"/>-->
+    </bean>
+
+<!--    <bean name="connectionPool2" class="org.example.demo.domain.ConnectionPool">-->
+<!--        <constructor-arg name="username" value="${db.username}"/>-->
+<!--        <constructor-arg name="password" value="${db.password}"/>-->
+<!--        <constructor-arg name="poolSize" value="${db.pool.size}"/>-->
+<!--        <constructor-arg name="url" value="${db.url}"/>-->
+<!--    </bean>-->
+
+
+    <bean name="driver" class="java.lang.String">
+        <constructor-arg value="Hell Driver"/>
+    </bean>
+
+</beans>
