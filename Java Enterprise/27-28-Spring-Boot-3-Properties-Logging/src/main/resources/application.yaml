@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: 23-Spring-6-IoC-XML-BEAN-LIFECYCLE
+db:
+  username: postgres
+  password: root
+  pool:
+    size: 12
+  driver: PostgresDriver
+  url: postgres:5432
+  hosts: localhost,127.0.0.1
+  pools:
+    - size: 1
+      timeout: 2
+    - size: 3
+      timeout: 4
+  properties:
+    first: 1
+    second: 2
+    key: value
+#spring.profiles.active=production
+
+logging:
+  level:
+    root: info
+  file:
+    name: demo.log
+    path: /

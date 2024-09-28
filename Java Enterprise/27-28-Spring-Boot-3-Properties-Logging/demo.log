@@ -1,0 +1,58 @@
+2024-09-28T18:39:40.562+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.Application             : Starting Application using Java 17.0.12 with PID 5256 (C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging\target\classes started by Alex in C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging)
+2024-09-28T18:39:40.564+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.Application             : No active profile set, falling back to 1 default profile: "default"
+2024-09-28T18:39:41.311+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.Application             : Starting Application using Java 17.0.12 with PID 19252 (C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging\target\classes started by Alex in C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging)
+2024-09-28T18:39:41.313+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.Application             : No active profile set, falling back to 1 default profile: "default"
+2024-09-28T18:39:41.472+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-28T18:39:41.486+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-28T18:39:41.487+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-28T18:39:41.552+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-28T18:39:41.553+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 933 ms
+2024-09-28T18:39:41.632+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T18:39:41.638+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T18:39:41.945+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-28T18:39:41.952+03:00  INFO 5256 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.Application             : Started Application in 1.831 seconds (process running for 2.69)
+2024-09-28T18:39:42.166+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-28T18:39:42.176+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-28T18:39:42.176+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-28T18:39:42.225+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-28T18:39:42.226+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 873 ms
+2024-09-28T18:39:42.271+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T18:39:42.275+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T18:39:42.515+03:00  WARN 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-09-28T18:39:42.531+03:00  INFO 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-28T18:39:42.580+03:00 ERROR 19252 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2024-09-28T19:15:00.007+03:00  INFO 16472 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : Starting CompanyServiceIT using Java 17.0.12 with PID 16472 (started by Alex in C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging)
+2024-09-28T19:15:00.010+03:00  INFO 16472 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : The following 1 profile is active: "test"
+2024-09-28T19:15:01.008+03:00  INFO 16472 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:15:01.016+03:00  INFO 16472 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:15:01.585+03:00  INFO 16472 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : Started CompanyServiceIT in 2.077 seconds (process running for 3.467)
+2024-09-28T19:15:54.614+03:00  INFO 13536 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : Starting CompanyServiceIT using Java 17.0.12 with PID 13536 (started by Alex in C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging)
+2024-09-28T19:15:54.614+03:00  INFO 13536 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : The following 1 profile is active: "test"
+2024-09-28T19:15:55.452+03:00  INFO 13536 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:15:55.467+03:00  INFO 13536 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:15:56.042+03:00  INFO 13536 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : Started CompanyServiceIT in 1.86 seconds (process running for 3.04)
+2024-09-28T19:18:14.494+03:00  INFO 6892 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : Starting CompanyServiceIT using Java 17.0.12 with PID 6892 (started by Alex in C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging)
+2024-09-28T19:18:14.494+03:00  INFO 6892 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : The following 1 profile is active: "test"
+2024-09-28T19:18:15.382+03:00  INFO 6892 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:18:15.408+03:00  INFO 6892 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:18:15.952+03:00  INFO 6892 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.i.service.CompanyServiceIT         : Started CompanyServiceIT in 1.859 seconds (process running for 3.035)
+2024-09-28T19:20:26.243+03:00  INFO 15856 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.integration.service.UserServiceIT  : Starting UserServiceIT using Java 17.0.12 with PID 15856 (started by Alex in C:\Users\Alex\Documents\Programming\Java\Java Enterprise\27-28-Spring-Boot-3-Properties-Logging)
+2024-09-28T19:20:26.245+03:00  INFO 15856 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.integration.service.UserServiceIT  : The following 1 profile is active: "test"
+2024-09-28T19:20:27.130+03:00  INFO 15856 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:20:27.140+03:00  INFO 15856 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] org.example.demo.domain.ConnectionPool   : Connection pool initialized
+2024-09-28T19:20:27.860+03:00  INFO 15856 --- [23-Spring-6-IoC-XML-BEAN-LIFECYCLE] [main] o.e.d.integration.service.UserServiceIT  : Started UserServiceIT in 2.034 seconds (process running for 3.35)
