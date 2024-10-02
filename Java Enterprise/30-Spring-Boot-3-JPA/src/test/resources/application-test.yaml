@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: 30-Spring-Boot-3-JPA
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springdata?currentSchema=public
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+
+db:
+  username: postgres
+  password: root
+  pool:
+    size: 12
+  driver: PostgresDriver
+  url: postgres:5432
+  hosts: localhost,127.0.0.1
+  pools:
+    - size: 1
+      timeout: 2
+    - size: 3
+      timeout: 4
+  properties:
+    first: 1
+    second: 2
+    key: value
+
+
+logging:
+  level:
+    root: info
+  file:
+    name: demo.log
+    path: /
