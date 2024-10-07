@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Products &ndash; Spring Thymeleaf</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body xmlns:th="http://www.thymeleaf.org">
+
+<div class="p-3" style="max-width: 36rem">
+    <a class="btn btn-primary" th:href="@{/catalogue/products/create}">+ Create</a>
+    <h1 class="py-2">List of products</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product: ${products}">
+            <td th:text="${product.id}"></td>
+            <td>
+                <a th:href="@{/catalogue/products/{productId}(productId=${product.id})}"
+                   th:text="${product.title}"
+                ></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${product.title}]] &ndash; Spring Thymeleaf</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body xmlns:th="http://www.thymeleaf.org">
+
+<div class="p-3" style="max-width: 36rem">
+    <a class="btn btn-secondary" th:href="@{/catalogue/products/list}">&larr; To list</a>
+    <h1 class="py-2" th:text="${product.title}"></h1>
+    <ul>
+        <li><strong>ID</strong>: <span th:text="${product.id}"></span></li>
+        <li><strong>Title</strong>: <span th:text="${product.title}"></span></li>
+        <li><strong>Details</strong>: <span th:text="${product.details}"></span></li>
+    </ul>
+    <div class="d-flex gap-2">
+        <a class="btn btn-warning" th:href="@{/catalogue/products/{productId}/edit(productId=${product.id})}">Edit</a>
+        <form method="post" th:action="@{/catalogue/products/{productId}/delete(productId=${product.id})}">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

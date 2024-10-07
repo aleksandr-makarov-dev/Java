@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Product &ndash; Spring Thymeleaf</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body xmlns:th="http://www.thymeleaf.org">
+
+<div class="p-3" style="max-width: 36rem">
+    <a class="btn btn-secondary" th:href="@{/catalogue/products/list}">&larr; To list</a>
+    <h1 class="py-2">New Product</h1>
+    <div class="alert alert-danger" role="alert" th:if="${errors}">
+        <ul>
+            <li th:each="error: ${errors}" th:text="${error}"></li>
+        </ul>
+    </div>
+    <form method="post" th:action="@{/catalogue/products/create}">
+        <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input type="text" class="form-control" name="title" id="title" th:value="${payload?.title}">
+            <div class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="details">Details</label>
+            <textarea class="form-control" name="details" id="details" th:text="${payload?.details}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create product</button>
+    </form>
+</div>
+</body>
+</html>
